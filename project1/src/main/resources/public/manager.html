@@ -4,10 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>manager</title>
+    <link rel="stylesheet" href="manager_style.css">
 </head>
 <body>
-    <marquee><h1>Master of the Universe</h1></marquee>
-    <button onClick=RequestController.findAll name="status" value="pending">Pending Requests</button>
-    <a href="update_form.html"><button>Update Request</button></a>
-    <a href="signin.html"><button>Log Out</button></a>
+    <div class="split left">
+        <div class="centered">
+        <button onClick=RequestController.findAll class="button" name="status" value="pending">Pending Requests</button>
+        <br>
+        <br>
+        <a href="update_form.html"><button class="button">Update Request</button></a>
+        <br>
+        <br>
+        <a href="signin.html"><button class="button">Log Out</button></a>
+        </div>
+    </div>
+    <div class="split right">
+        <div class="centered">
+            <h1 class="title">Master of the Universe</h1>
+            <br>
+            <img src="IMG_0555.jpg" alt="Site Logo" class="rotateimg">
+        </div>
+    </div>
 </body>

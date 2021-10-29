@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>my requests</title>
+    <link rel="stylesheet" href="update_style.css">
 </head>
-<body>
-    <h2>My Requests</h2>
+<body style="background-color:#F0F8FF">
+    <h2 class="text">My Requests</h2>
+    <br>
     <form method="post">
-        <button name="status" value="pending">View Pending</button>
-        <button name="status" value="approved">View Approved</button>
-        <button name="status" value="denied">View Denied</button>
-        <button>View All</button>
+        <button class="button" name="status" value="pending">View Pending</button>
+        <button class="button" name="status" value="approved">View Approved</button>
+        <button class="button" name="status" value="denied">View Denied</button>
+        <br>
+        <button class="button">View All</button>
     </form>
-    <a href="employee.html"><button>Return to Main Menu</button></a>
-    <a href="signin.html"><button>Log Out</button></a>
+    <div style="position: absolute; bottom: 20px">
+    <a href="employee.html"><button class="button">Return to Main Menu</button></a>
+    <a href="signin.html"><button class="button">Log Out</button></a>
+    </div>
 </body>

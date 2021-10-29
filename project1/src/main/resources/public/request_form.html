@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>request form</title>
+</head>
+<body>
+    <h2 align="center">Make a Reimbursement Request</h2>
+    <form method="post" action="submitted.html">
+        <table>
+            <tr>
+                <td>Enter your user id</td>
+                <td><input type="text" name="userId" required="required" placeholder="1-18"/></td>
+            </tr>
+            <tr>
+                <td>Enter amount to be reimbursed</td>
+                <td><input type="text" name="amount" required="required" placeholder="0.00"/></td>
+            </tr>
+            <tr>
+                <td> Enter reason </td>
+                <td><input type="text" name="reason" required="required" placeholder="reason"/></td>
+            </tr>
+            <input type="submit" value="Submit">
+        </table>
+    </form>
+    <a href="employee"><button>Return to Main Menu</button></a>
+    <a href="signin.html"><button>Log Out</button></a>
+</body>
+</html>

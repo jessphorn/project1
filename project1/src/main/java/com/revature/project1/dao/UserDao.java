@@ -1,0 +1,89 @@
+package com.revature.project1.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.hibernate.Transaction;
+
+import com.revature.project1.model.User;
+import com.revature.project1.util.ConnectionFactory;
+
+public class UserDao {
+
+	private static UserDao userDao;
+	
+	private UserDao () {
+		super();
+	}
+	
+	public static UserDao getUserDao() {
+	    if (userDao == null) {
+	    	userDao = new UserDao();
+	    }
+	    return userDao;
+	}
+	
+	public List<User> findAll() {
+        try (Connection connection = ConnectionFactory.getConnection()) {
+        	String query = "SELECT * FROM revature.user";
+        	PreparedStatement pstmt = connection.prepareStatement(query);
+        	ResultSet rs = pstmt.executeQuery();
+        	List<User> users = new ArrayList<User>();
+        	User user;
+        	while (rs.next()) {
+        		user = new User();
+        		user.setId(rs.getInt("id"));
+        		user.setUserName(rs.getString("user_name"));
+        		user.setPassword(rs.getString("password"));
+        		user.setFullName(rs.getString("full_name"));
+        		user.setPosition(rs.getString("position"));
+        		users.add(user);
+        	}
+        	return users;
+        } catch (Exception e) {
+        	System.out.println(e.getLocalizedMessage());
+        	//error handling
+        	return null;
+        }
+ 	}
+	
+	public User findById(int id) {
+		try (Connection connection = ConnectionFactory.getConnection()) {
+			String query = "SELECT * FROM revature.user WHERE id = ?";
+			PreparedStatement pstmt = connection.prepareStatement(query);
+			pstmt.setInt(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			rs.next();
+			User user = new User();
+			user.setId(rs.getInt("id"));
+			user.setUserName(rs.getString("user_name"));
+			user.setPassword(rs.getString("password"));
+			user.setFullName(rs.getString("full_name"));
+			user.setPosition(rs.getString("position"));
+			return user;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			// error handling
+	    	return null;
+		}
+	}
+	
+//	public User update(Object ojb) {
+//		// implement
+//		return null;
+//	}
+//	
+//	public boolean delete(User user) {
+//		// implement
+//		return true;
+//	}
+//
+//	public User add(User user) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+}

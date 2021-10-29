@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update</title>
+</head>
+<body>
+    <form name="update_form" method="post" action="updated.html">
+        <table>
+            <tr>
+                <td>Enter the request id</td>
+                <td><input type="text" name="id" required="required" placeholder="id"/></td>
+            </tr>
+            <tr>
+                <td>Enter your id</td>
+                <td><input type="text" name="deciding_manager" required="required" placeholder="your id"/></td>
+            </tr>
+            <tr>
+                <td>Enter reason</td>
+                <td><input type="text" name="reason" required="required" placholder="reason"/></td>
+            </tr>
+            <tr>
+                <td><button type="submit" name="status" value="approved">Approved</button></td>
+                <td><button type="submit" name="status" value="denied">Denied</button></td>
+            </tr>
+        </table>
+    </form>
+    <a href="manager.html"><button>Return to Main Menu</button></a>
+    <a href="signin.html"><button>Log Out</button></a>
+</body>

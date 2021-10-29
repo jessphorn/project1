@@ -14,7 +14,8 @@ public class ConnectionFactory {
 		    props.load(fileInputStream);
 		    String details = props.getProperty("condetails");
 		    Class.forName("org.postgresql.Driver");
-		    Connection connection = DriverManager.getConnection(details);
+		    Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/project1?user=postgres&password=postgres");
+		    //Connection connection = DriverManager.getConnection(details);
 		    return connection;
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

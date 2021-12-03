@@ -29,18 +29,18 @@ public class UserDao {
 	
 	public List<User> findAll() {
         try (Connection connection = ConnectionFactory.getConnection()) {
-        	String query = "SELECT * FROM revature.user";
+        	String query = "SELECT * FROM users";
         	PreparedStatement pstmt = connection.prepareStatement(query);
         	ResultSet rs = pstmt.executeQuery();
         	List<User> users = new ArrayList<User>();
         	User user;
         	while (rs.next()) {
         		user = new User();
-        		user.setId(rs.getInt("id"));
-        		user.setUserName(rs.getString("user_name"));
-        		user.setPassword(rs.getString("password"));
-        		user.setFullName(rs.getString("full_name"));
-        		user.setPosition(rs.getString("position"));
+        		user.setId(rs.getInt(1));
+        		user.setUserName(rs.getString(2));
+        		user.setPassword(rs.getString(3));
+        		user.setFullName(rs.getString(4));
+        		user.setPosition(rs.getString(5));
         		users.add(user);
         	}
         	return users;
@@ -53,7 +53,7 @@ public class UserDao {
 	
 	public User findById(int id) {
 		try (Connection connection = ConnectionFactory.getConnection()) {
-			String query = "SELECT * FROM revature.user WHERE id = ?";
+			String query = "SELECT * FROM users WHERE id = ?";
 			PreparedStatement pstmt = connection.prepareStatement(query);
 			pstmt.setInt(1, id);
 			ResultSet rs = pstmt.executeQuery();

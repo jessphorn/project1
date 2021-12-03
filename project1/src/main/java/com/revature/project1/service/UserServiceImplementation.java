@@ -11,7 +11,7 @@ import com.revature.project1.model.User;
 public class UserServiceImplementation implements UserService {
 	
 	private static UserService userService = null;
-    private static UserDao userDao = null;
+    private static UserDao userDao = UserDao.getUserDao();
 	
     private UserServiceImplementation() {
     	super();
@@ -20,7 +20,6 @@ public class UserServiceImplementation implements UserService {
     public static UserService getUserService() {
     	if (userService == null) {
     		userService = new UserServiceImplementation();
-    		userDao = UserDao.getUserDao();
     	}
     	return userService;
     }
